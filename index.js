@@ -1,4 +1,5 @@
 "use strict";
+console.log("Hello world")
 //TODO: Add debugger (see demo video)
 //! Don't forget to add "console": "integratedTerminal" to .vscode/launch.json after creating launch configuration
 //TODO: Import necessary functions from atm.js
