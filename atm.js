@@ -3,13 +3,14 @@
 const {balance} = require("./account");
 const {pin} = require("./account");
 const prompt = require("prompt-sync")();
+const menu = require("./index");
 
 function getBalance(Boolean) {
   if (Boolean === true){
-  alert(balance)}
+  console.log(balance)}
   else {
-    alert("Invalid pin, please try again.");
-    getBalance()} {
+    console.log("Invalid pin, please try again.");
+    menu()} {
   }
   //TODO: Return the customer's acct. balance
 }
@@ -19,15 +20,15 @@ function withdraw(withdrawAmount, Boolean) {
   if (Boolean === true){
     if (balance >= parseInt(withdrawAmount)){
       newBalance = balance - parseInt(withdrawAmount);
-      alert("New current balance: " `${newBalance}`)
+      console.log("New current balance: " + newBalance)
         return newBalance}
         else {
-        alert("Withdraw amount exceeds current balance.  Please try again.");
+        console.log("Withdraw amount exceeds current balance.  Please try again.");
         withdraw()
       }
     } else {
-    alert("Invalid pin, please try again.");
-    withdraw()
+    console.log("Invalid pin, please try again.");
+    menu()
   }
   //TODO: withdraw amount from current acct. balance
   // Log the current balance after withdrawal is made
@@ -38,21 +39,21 @@ function deposit(depositAmount, Boolean) {
   if (Boolean === true) {
     if (parseInt(depositAmount) > 0) {
       newBalance = balance + parseInt(depositAmount);
-      alert("New current balance: " `${newBalance}`);
+      console.log("New current balance: " + newBalance);
       return newBalance
     } else{
-      alert("You must enter a positive number to deposit.  Please try again.");
+      console.log("You must enter a positive number to deposit.  Please try again.");
       deposit()
     }
   } else {
-    alert("Invalid pin, please try again.")
+    console.log("Invalid pin, please try again.")
   }
   //TODO: deposit amount to current acct. balance
   // Log the current balance after deposit is made
 }
 
 function validatePin(enteredPin) {
-  if (pin === enteredPin) {
+  if (parseInt(pin) === enteredPin) {
     return true
   } else {
     return false
